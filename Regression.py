@@ -17,12 +17,12 @@ test_data = sc.textFile("test.csv")
 parsedTrainData = train_data.map(parsePoint).filter(lambda x: x is not None)
 parsedTestData = test_data.map(parsePoint).filter(lambda x: x is not None)
 
-model_lenear = LinearRegressionWithSGD.train(parsedTrainData, iterations=100, step=0.1)
+model_linear = LinearRegressionWithSGD.train(parsedTrainData, iterations=100, step=0.1)
 model_ridge = RidgeRegressionWithSGD.train(parsedTrainData, iterations=100, step=0.1, regParam= 0.01)
 model_lasso = LassoWithSGD.train(parsedTrainData, iterations=100, step=0.1, regParam= 0.01)
 
-valuesAndPredsLinearTrain = parsedTrainData.map(lambda p: (p.label, model_lenear.predict(p.features)))
-valuesAndPredsLinearTest = parsedTestData.map(lambda p: (p.label, model_lenear.predict(p.features)))
+valuesAndPredsLinearTrain = parsedTrainData.map(lambda p: (p.label, model_linear.predict(p.features)))
+valuesAndPredsLinearTest = parsedTestData.map(lambda p: (p.label, model_linear.predict(p.features)))
 
 valuesAndPredsRidgeTrain = parsedTrainData.map(lambda p: (p.label, model_ridge.predict(p.features)))
 valuesAndPredsRidgeTest = parsedTestData.map(lambda p: (p.label, model_ridge.predict(p.features)))
@@ -43,6 +43,6 @@ print("Root Mean Squared Error of 'Linear Model + Total Data Set': " + str(np.sq
 print("Root Mean Squared Error of 'Ridge Model + Total Data Set': " + str(np.sqrt(MSE_Ridge)))
 print("Root Mean Squared Error of 'Lasso Model + Total Data Set': " + str(np.sqrt(MSE_Lasso)))
 
-model_lenear.save(sc, "2014312051_linear")
+model_linear.save(sc, "2014312051_linear")
 model_ridge.save(sc, "2014312051_ridge")
 model_lasso.save(sc, "2014312051_lasso")
