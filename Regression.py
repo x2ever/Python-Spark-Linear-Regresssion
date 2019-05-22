@@ -30,13 +30,16 @@ valuesAndPredsRidgeTest = parsedTestData.map(lambda p: (p.label, model_ridge.pre
 valuesAndPredsLassoTrain = parsedTrainData.map(lambda p: (p.label, model_lasso.predict(p.features)))
 valuesAndPredsLassoTest = parsedTestData.map(lambda p: (p.label, model_lasso.predict(p.features)))
 
-MSE_Linear = (valuesAndPredsLinearTrain.map(lambda vp: (vp[0] - vp[1])**2).reduce(lambda x, y: x + y) + valuesAndPredsLinearTest.map(lambda vp: (vp[0] - vp[1])**2).reduce(lambda x, y: x + y)) / \
+MSE_Linear = (valuesAndPredsLinearTrain.map(lambda vp: (vp[0] - vp[1])**2).\
+    reduce(lambda x, y: x + y) + valuesAndPredsLinearTest.map(lambda vp: (vp[0] - vp[1])**2).reduce(lambda x, y: x + y)) / \
     (valuesAndPredsLinearTrain.count() + valuesAndPredsLinearTest.count())
 
-MSE_Ridge = (valuesAndPredsRidgeTrain.map(lambda vp: (vp[0] - vp[1])**2).reduce(lambda x, y: x + y) + valuesAndPredsRidgeTest.map(lambda vp: (vp[0] - vp[1])**2).reduce(lambda x, y: x + y)) / \
+MSE_Ridge = (valuesAndPredsRidgeTrain.map(lambda vp: (vp[0] - vp[1])**2).\
+    reduce(lambda x, y: x + y) + valuesAndPredsRidgeTest.map(lambda vp: (vp[0] - vp[1])**2).reduce(lambda x, y: x + y)) / \
     (valuesAndPredsRidgeTrain.count() + valuesAndPredsRidgeTest.count())
 
-MSE_Lasso = (valuesAndPredsLassoTrain.map(lambda vp: (vp[0] - vp[1])**2).reduce(lambda x, y: x + y) + valuesAndPredsLassoTest.map(lambda vp: (vp[0] - vp[1])**2).reduce(lambda x, y: x + y)) / \
+MSE_Lasso = (valuesAndPredsLassoTrain.map(lambda vp: (vp[0] - vp[1])**2).\
+    reduce(lambda x, y: x + y) + valuesAndPredsLassoTest.map(lambda vp: (vp[0] - vp[1])**2).reduce(lambda x, y: x + y)) / \
     (valuesAndPredsLassoTrain.count() + valuesAndPredsLassoTest.count())
 
 print("Root Mean Squared Error of 'Linear Model + Total Data Set': " + str(np.sqrt(MSE_Linear)))
