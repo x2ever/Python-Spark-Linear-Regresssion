@@ -42,9 +42,9 @@ projected = mat.multiply(pc)
 x = [vector[0] for vector in projected.rows.collect()]
 y = [vector[1] for vector in projected.rows.collect()]
 
-LinearModel = LinearRegressionModel.load(sc, "2014312051_linear")
-RidgeModel = RidgeRegressionModel.load(sc, "2014312051_ridge")
-LassoModel = LassoModel.load(sc, "2014312051_lasso")
+LinearModel = LinearRegressionModel.load(sc, "Linear")
+RidgeModel = RidgeRegressionModel.load(sc, "Ridge")
+LassoModel = LassoModel.load(sc, "Lasso")
 
 valuesAndPredsLinearTrain = parsedTrainData.map(lambda p: (p.label, LinearModel.predict(p.features)))
 valuesAndPredsLinearTest = parsedTestData.map(lambda p: (p.label, LinearModel.predict(p.features)))

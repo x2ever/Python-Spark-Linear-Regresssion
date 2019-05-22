@@ -46,6 +46,6 @@ print("Root Mean Squared Error of 'Linear Model + Total Data Set': " + str(np.sq
 print("Root Mean Squared Error of 'Ridge Model + Total Data Set': " + str(np.sqrt(MSE_Ridge)))
 print("Root Mean Squared Error of 'Lasso Model + Total Data Set': " + str(np.sqrt(MSE_Lasso)))
 
-model_linear.save(sc, "2014312051_linear")
-model_ridge.save(sc, "2014312051_ridge")
-model_lasso.save(sc, "2014312051_lasso")
+model_linear.save(sc, "Linear")
+model_ridge.save(sc, "Ridge")
+model_lasso.save(sc, "Lasso")
