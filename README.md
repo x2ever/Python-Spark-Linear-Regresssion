@@ -1,5 +1,8 @@
 # Python Spark Linear Regresssion 
 
+I test these code with Python 3.7
+It is not clear whether previous versions of Python can handle the code.
+
 ## intallation
 
 ```
