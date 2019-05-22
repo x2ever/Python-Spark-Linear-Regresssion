@@ -50,7 +50,7 @@ python Visualization.py
 
 #### Result
 
-![Visualization.png](./assset/image/Visualization.png)
+![Visualization.png](https://github.com/x2ever/Python-Spark-Linear-Regresssion/blob/master/asset/image/Visualization.png)
 
 ## How can i do this with my own Dataset?
 
